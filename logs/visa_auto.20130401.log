@@ -1,0 +1,18 @@
+20130401%:14:29:35-[INFO]-###############################
+20130401%:14:29:35-[INFO]-Starting visa_auto.py w/ arguments: {'monthday': '201303', 'option': '3', 'dataset': 'bluecoat'}
+20130401%:14:29:35-[INFO]-Starting Step 3 Run Map/Reduce Jobs!
+20130401%:14:29:35-[INFO]-Step 3 Complete!
+20130401%:14:29:35-[INFO]-Script Complete!
+20130401%:14:29:35-[INFO]-###############################
+20130401%:17:17:21-[INFO]-###############################
+20130401%:17:17:21-[INFO]-Starting visa_auto.py w/ arguments: {'monthday': '201303', 'option': '3', 'dataset': 'bluecoat'}
+20130401%:17:17:21-[INFO]-Starting Step 3 Run Map/Reduce Jobs!
+20130401%:17:17:21-[INFO]-Step 3 Complete!
+20130401%:17:17:21-[INFO]-Script Complete!
+20130401%:17:17:21-[INFO]-###############################
+20130401%:17:20:14-[INFO]-###############################
+20130401%:17:20:14-[INFO]-Starting visa_auto.py w/ arguments: {'monthday': '201303', 'option': '3', 'dataset': 'bluecoat'}
+20130401%:17:20:14-[INFO]-Starting Step 3 Run Map/Reduce Jobs!
+20130401%:17:20:14-[INFO]-Step 3 Complete!
+20130401%:17:20:14-[INFO]-Script Complete!
+20130401%:17:20:14-[INFO]-###############################

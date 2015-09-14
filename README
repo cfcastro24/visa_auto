@@ -1,0 +1,80 @@
+*************************************************************************
+README for script visa_auto.py
+
+USAGE: python visa_auto.py -d <dataset> -m <monthday> -o <options {1-5}>
+where options are:
+        1 - Rezip
+        2 - Load HDFS
+        3 - Run MapReduce
+        4 - Create External Tables
+        5 - Load GPDB
+
+DESCRIPTION:    
+The visa_auto.py script is designed to automate the flow of data logs from ETL, 
+HDFS and GPDB. This process includes file management, log parsing via map/reduce, 
+transformation and data loads to GPDB system for the following datasets: bluecoat,
+vpn, active directory, netscout, dns, dhcp, fwcheckpoint and fwpix.
+
+The script can be run in its entirely or by individual steps as indicated in the
+options parameter. below are some examples of its usage:
+
+EXAMPLES:
+Run full data flow for vpn for October 2010
+ python visa_auto.py -d vpn -m 201210
+
+Run map reduce jobs for vpn for October 2010
+ python visa_auto.py -d vpn -m 201210 -o 3
+
+Run full data flow for vpn for October 2010 in the background and save log
+ python -u visa_auto.py -d vpn -m 201210 > logs/visa_auto.vpn_201210.log 2>&1 &
+
+The script uses and expects the following scripts/directories for it to work. Make
+sure the paths are consistent on all etl servers and hadoop cluster
+
+Folder Structure
+
+Scripts:	
+
+visa_auto.py home directory		/data1/auto_scripts/
+directory for rezip scripts		/data1/auto_scripts/bin/
+directory for MapReduce jar & scripts	/data1/auto_scripts/bin/
+directory for external tables		/data1/auto_scripts/ext/
+directory for gpdb load scripts		/data1/auto_scripts/ext/
+directory for source code including ddl
+			 and map reduce	/data1/auto_scripts/src/
+
+Source Data: The source data folders will be spread on all etl servers in the 
+following manner:
+
+Active Directory: ETL1
+	input: /data1/input/active_directory/
+	output: /data2/output/active_directory/
+VPN: ETL1
+        input: /data1/input/vpn/
+        output: /data2/output/vpn/
+FW Pix: ETL2
+        input: /data1/input/fwpix/
+        output: /data2/output/fwpix/
+FW Checkpoint: ETL2
+        input: /data1/input/fwcheckpoint/
+        output: /data2/output/fwcheckpoint/
+DNS: ETL3
+        input: /data1/input/dns/
+        output: /data2/output/dns/
+DHCP: ETL3
+        input: /data1/input/dhcp/
+        output: /data2/output/dhcp/
+Bluecoat: ETL4
+        input: /data1/input/bluecoat/
+        output: /data2/output/bluecoat/
+Netscout: ETL4
+        input: /data1/input/netscout/
+        output: /data2/output/netscout/
+
+Hadoop Data: hdfs will have input and output directories for each dataset in
+the following manner
+
+INPUT:
+hdfs:/data/input/<dataset>/<monthday>/
+hdfs:/data/output/<dataset>/<monthday>/
+*************************************************************************

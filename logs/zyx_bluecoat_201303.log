@@ -1,0 +1,10 @@
+###############################
+Starting visa_auto.py w/ arguments: {'monthday': '201303', 'option': '5', 'dataset': 'bluecoat'}
+###############################
+Starting Step 5 - Load GPDB
+INSERT 0 304885918
+###############################
+Script Complete!
+###############################
+0.04user 0.01system 3:24.86elapsed 0%CPU (0avgtext+0avgdata 23616maxresident)k
+0inputs+0outputs (0major+3944minor)pagefaults 0swaps

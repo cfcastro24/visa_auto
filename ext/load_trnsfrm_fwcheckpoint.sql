@@ -1,0 +1,28 @@
+insert into fwcheckpoint
+select 
+to_timestamp('<CHANGE_YEAR> '||col_01, 'YYYY Mon DD HH24:MI:SS'),
+col_02::varchar(25),
+col_03::int,
+col_04::inet,
+to_timestamp(col_05, 'DDMonYYYY HH24:MI:SS'),
+col_06::varchar(15),
+col_07::varchar(5),
+col_08::varchar(40),
+col_09::varchar(10),
+col_10::varchar(10),
+col_11::varchar(11),
+col_12::inet,
+col_13::varchar(10),
+col_14,
+col_15,
+col_16,
+col_17::inet,
+col_18::inet,
+col_19::varchar(5),
+col_20::varchar(20),
+col_21::varchar(20),
+col_22::varchar(20),
+col_23::varchar(15),
+col_24::varchar(15),
+col_25
+from gphdfs.ext_fwcheckpoint_<CHANGE_MONTHDAY>;

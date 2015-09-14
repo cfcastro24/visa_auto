@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DATASET=$1
+MONTHDAY=$2
+BINDIR=$3
+
+HDFSINPUTDIR=/data/input/$DATASET/$MONTHDAY
+HDFSOUTPUTDIR=/data/output/$DATASET/$MONTHDAY
+
+hadoop jar $BINDIR\fwcheckpointParse.jar CheckpointMR $HDFSINPUTDIR/*.gz $HDFSOUTPUTDIR

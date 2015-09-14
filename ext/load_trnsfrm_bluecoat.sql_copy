@@ -1,0 +1,34 @@
+insert into bluecoat 
+select
+to_timestamp(col_01 ||' '|| col_02,'YYYY-MM-DD HH24:MI:SS') as log_date,
+col_03::bigint as time_taken,
+col_04::inet	as c_ip,
+col_05::varchar(50)	as cs_username,
+col_06::varchar(50)	as cs_auth_grp,
+col_07::varchar(100) as exception_id,
+col_08::varchar(20) as sc_filter_result,
+col_09::varchar(255) as cs_categories,
+col_10 as url_ref,
+case 
+	when col_10 like 'http://%' then SUBSTRING(col_10 FROM 'http://([^/]*).*')
+	when col_10 like 'https://%' then SUBSTRING(col_10 FROM 'https://([^/]*).*')
+	when col_10 like 'app:/%' then SUBSTRING(col_10 FROM 'app:/([^/]*).*')
+	when col_10 like 'ftp://%' then SUBSTRING(col_10 FROM 'ftp://([^/]*).*')
+	else col_10
+end as url_ref_strp,
+col_11::int as sc_status,
+col_12::varchar(50) as s_action,
+col_13 as cs_method,
+col_14 as content_type,
+col_15::varchar(25) as cs_uri_scheme,
+col_16::varchar(255) as cs_host,
+col_17::int as cs_uri_port,
+col_18 as cs_uri_path,
+col_19 as cs_uri_query,
+col_20 as cs_uri_extension,
+col_21 as cs_user_agent,
+col_22::inet as s_ip,
+col_23::bigint as sc_bytes,
+col_24::bigint as cs_bytes,
+col_25::varchar(50) as x_virus_id
+from gphdfs.ext_bluecoat_<CHANGE_MONTHDAY>;

@@ -1,0 +1,11 @@
+###############################
+Starting visa_auto.py w/ arguments: {'monthday': '201301', 'option': '5', 'dataset': 'bluecoat'}
+###############################
+Starting Step 5 - Load GPDB
+ERROR:  All 1000 first rows in this segment were rejected. Aborting operation regardless of REJECT LIMIT value. Last error was: missing data for column "app_name"  (seg13 slice1 sdw3:40001 pid=19575)
+DETAIL:  External table ext_bluecoat_201301, line 1000 of gphdfs://hdm1:8020/data/output/bluecoat/201301/*: "2013-01-15,01:09:24,10.72.5.17,amejikov,-,-,OBSERVED,Web Advertisements,http://www.jdate.com/framewo..."
+###############################
+Script Complete!
+###############################
+0.04user 0.01system 0:13.04elapsed 0%CPU (0avgtext+0avgdata 23616maxresident)k
+0inputs+0outputs (0major+3949minor)pagefaults 0swaps
